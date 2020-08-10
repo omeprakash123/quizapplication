@@ -1,0 +1,25 @@
+    
+<div class="main-content">
+    <router-outlet></router-outlet>
+</div>
+<div style="text-align: center;" *ngIf="displayDiv">
+   <div style="text-align: center;margin: 30px;">
+    <strong>Select difficulty Level: </strong>
+    <select name="difficultySelect" class="form-control" style="width: 30%;display: inline-block;" id="difficultySelect" [(ngModel)]="difficultySelected">
+        <!-- <option value="Select the Difficulty" selected ="selected" disabled>Select the Difficulty</option> -->
+        <option  value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select>
+    <button style="margin: 8px;" (click)="getDifficultyLevel(difficultySelected)" class="btn btn-primary">Start Quiz</button>
+   </div>
+</div>
+<!-- <div style="text-align: center;margin: 30px;" >
+  <p>  <strong>Question:</strong> {{ questionRecived}}   </p> <br>
+    <div style="margin: 50px;">
+    <p><strong>Option A:</strong> {{optionA }} </p>
+    <p><strong>Option B: </strong>{{optionB }} </p>
+    <p><strong>Option C:</strong> {{ optionC }} </p>
+    <p><strong>Option D:</strong> {{ optionD }} </p>
+    </div>
+</div> -->

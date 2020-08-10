@@ -1,0 +1,25 @@
+.app-footer {
+    background: white;
+		border-top: 2px solid #F0EFEF;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width:100vw; //ie fix
+    .footer-item {
+        display: table;
+        height: 18px;
+        width: 100%;
+        padding: 0.5rem 1.5rem;
+    }
+    img {
+        float: right;
+        margin-top: 2px;
+        height: 12px;
+    }
+    span {
+        color: #666666;
+        display: table-cell;
+        vertical-align: middle;
+        font-Size: 12px;
+		}
+}

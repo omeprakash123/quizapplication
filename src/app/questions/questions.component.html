@@ -1,0 +1,65 @@
+<div class="container">  
+    <div class="row">
+        <div class="col-12">
+            <p class="text-right">Questions Number: {{questionCount +1}} / 10</p>
+            <p *ngIf="questionCount<9" class="text-right">Timing Left for this question: {{questionTimer}} seconds out of 10 seconds</p>
+        </div>
+       
+    </div>
+    <div class="row" *ngIf="questionCount<9">
+    </div>
+    <div class="row" *ngIf="questionCount<9">
+        <div class="col-12">
+          <h3>  Question: {{currentQuestion.question}}</h3>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="questionCount<9">
+        <div class="col-12">
+            <h5>Please choose correct option below:</h5>
+            <ng-container *ngIf="!display">
+                <ul class="list-group" *ngFor="let opt of options; let i=index;" >
+                    <li class="list-group-item" type="button" (click)="answerSelect(opt, i)" > {{opt}}</li>
+                </ul>
+            </ng-container >
+            <ng-container *ngIf="display">
+                <ul class="list-group" *ngFor="let opt of options; let j=index;" >
+                    <li class="list-group-item"  [ngStyle]="{'background-color': currentAns==currentQuestion.correct_answer && currentIndex ==j? 'green':'transparent', 'color':'black'}"> {{opt}}</li>
+                </ul>
+            </ng-container>
+            
+         
+        </div>
+    </div>
+
+    <div class="row" *ngIf="questionCount<9">
+       <div class="col-12">
+           <!-- <div class="alert alert-info" role="alert" *ngIf="currentAns.length>0">
+            The Answer you selected is: {{currentAns}}
+           </div> -->
+
+           
+           <div class="alert alert-danger" role="alert" style="color: white;" *ngIf="currentAns!==currentQuestion.correct_answer && currentAns.length>0"  [ngStyle]="{'background-color': currentAns==currentQuestion.correct_answer ? 'transparent':'red'}">
+            You have selected wrong answer
+           </div>
+           <div class="alert alert-success" role="alert" style="color: white;" *ngIf="currentAns===currentQuestion.correct_answer && currentAns.length>0"  [ngStyle]="{'background-color': currentAns==currentQuestion.correct_answer ? 'green':'transparent'}">
+            You have selected correct answer
+           </div>
+           <div class="alert alert-success" role="alert" *ngIf="currentAns.length>0">
+            The Correct answer is: {{currentQuestion.correct_answer}}
+           </div>
+           
+       
+       
+       </div>
+    </div>
+    <br>
+
+ 
+
+    <div class="row"  *ngIf="questionCount >= 9">
+        <div class="col-12">
+          <h3 class="text-center">Total Score: {{correctAnswerCount}}/10</h3>  
+        </div>
+    </div>
+</div>
