@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetquestionsService} from '../services/getquestions.service';
 import {Router} from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner"; 
 
 
 @Component({
@@ -17,7 +18,7 @@ export class MainContentComponent implements OnInit {
   diffURL: string = "https://opentdb.com/api.php?amount=10&category=18&difficulty=hard&type=multiple";
 
   
-  currentQuestion: any = {
+  /* currentQuestion: any = {
 		category:"",
 		type:"",
     difficulty:"",
@@ -34,10 +35,10 @@ export class MainContentComponent implements OnInit {
   optionA: any;
   optionB: any;
   optionC: any;
-  optionD: any;
+  optionD: any; */
   displayQuestionDiv:boolean = true;
   
-  constructor( private getquestions:GetquestionsService, private router:Router) { }
+  constructor( private getquestions:GetquestionsService, private router:Router, private SpinnerService: NgxSpinnerService) { }
  
   ngOnInit() {
     this.displayDiv= true;
@@ -49,6 +50,7 @@ export class MainContentComponent implements OnInit {
   getDifficultyLevel(difficultySelected){
    // alert(difficultySelected);
     //this.getquestions.getquestionslist();
+    this.SpinnerService.show();
     if(difficultySelected==="easy"){
      // alert(difficultySelected+" : "+ this.getquestions.getquestionslist());
      this.getquestions.getquestionslist(this.easyURL).subscribe(data=>{
@@ -56,7 +58,8 @@ export class MainContentComponent implements OnInit {
        this.questionsResp = JSON.stringify(data);
        console.log(JSON.stringify(data));
        //  return data;
-      this.router.navigateByUrl("questions")
+      this.router.navigateByUrl("questions");
+      this.SpinnerService.hide();
      }
      )
      this.displayDiv = false;
@@ -74,7 +77,8 @@ export class MainContentComponent implements OnInit {
         //  this.optionD = data.results[0].incorrect_answers[2];
       // return data;
 
-      this.router.navigateByUrl("questions")
+      this.router.navigateByUrl("questions");
+      this.SpinnerService.hide();
     }
     )
       this.displayDiv = false;
@@ -86,7 +90,8 @@ export class MainContentComponent implements OnInit {
       this.questionsResp = JSON.stringify(data);
      // console.log(JSON.stringify(data));
     //  return data;
-      this.router.navigateByUrl("questions")
+      this.router.navigateByUrl("questions");
+      this.SpinnerService.hide();
     }
     ) 
      this.displayDiv = false;
@@ -94,6 +99,7 @@ export class MainContentComponent implements OnInit {
     else{
       alert("Please specify the difficulty level to proceed");
       this.displayDiv = true;
+      this.SpinnerService.hide();
     }
   }
   }

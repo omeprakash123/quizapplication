@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { GetquestionsService } from './services/getquestions.service';
 import { QuestionsComponent } from './questions/questions.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { QuestionsComponent } from './questions/questions.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ],
   providers: [GetquestionsService],
   bootstrap: [AppComponent]
