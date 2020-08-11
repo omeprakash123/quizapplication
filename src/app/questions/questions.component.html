@@ -61,15 +61,15 @@
           <h3 class="text-center"> Hey!! Your total score is  {{correctAnswerCount}}/10</h3>  
         </div>
     </div>
-    <div class="row"  *ngIf="correctAnswerCount >= 3">
+    <!-- <div class="row"  *ngIf="correctAnswerCount >= 9">
         <div class="col-12" [ngStyle]="{'color': correctAnswerCount>5 ? 'green':'red'}">
           <h3 class="text-center">Congratulations! You are the winner!!</h3>  
         </div>
-    </div>
+    </div> -->
 
-    <div class="row"  *ngIf="correctAnswerCount >= 3">
+    <!-- <div class="row"  *ngIf="correctAnswerCount >= 3">
         <div class="col-12" [ngStyle]="{'color': correctAnswerCount<2 ? 'green':'red'}">
           <h3 class="text-center">Please try again!!!!</h3>  
         </div>
-    </div>
+    </div> -->
 </div>

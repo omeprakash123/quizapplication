@@ -56,7 +56,7 @@ export class MainContentComponent implements OnInit {
      this.getquestions.getquestionslist(this.easyURL).subscribe(data=>{
        this.getquestions.setquestionsdata(data);
        this.questionsResp = JSON.stringify(data);
-       console.log(JSON.stringify(data));
+      // console.log(JSON.stringify(data));
        //  return data;
       this.router.navigateByUrl("questions");
       this.SpinnerService.hide();
@@ -69,7 +69,7 @@ export class MainContentComponent implements OnInit {
      this.getquestions.getquestionslist(this.mediumURL).subscribe(data=>{
       this.getquestions.setquestionsdata(data);
     //  alert(JSON.stringify(data));
-      console.log(data);
+     // console.log(data);
         //  this.questionRecived = data.results[0].question;
         //  this.optionA = data.results[0].incorrect_answers[0];
         //  this.optionB = data.results[0].correct_answer;
